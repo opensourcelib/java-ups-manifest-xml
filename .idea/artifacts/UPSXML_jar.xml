@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UPSXML:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/UPSXML_jar</output-path>
+    <root id="archive" name="UPSXML.jar">
+      <element id="module-output" name="UPSXML" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/jcabi-immutable-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/jcabi-matchers-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/jcabi-xml-0.18.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/hamcrest-core-1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/hamcrest-library-1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/slf4j-api-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/jcabi-log-0.17.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/slf4j-simple-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/javax.json-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/javax.json-api-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/com/partshighway/ups/xml/libs/jcabi-http-1.17.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
