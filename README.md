@@ -3,7 +3,7 @@
 Java Library to download UPS Quantum View data like package manifest containing tracking information, etc. 
 ## Installation
 
-* git pull https://github.com/jelqui/java-ups-manifest-xml.git
+* git clone https://github.com/jelqui/java-ups-manifest-xml.git
 * cd java-ups-manifest-xml
 * add libraries dependencies under src/com/partshighway/ups/xml/libs/*
 
