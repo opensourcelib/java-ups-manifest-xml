@@ -37,6 +37,14 @@ public class Address
         return PostalCode;
     }
 
+    public String getPostalCode (int lenght)
+    {
+        if(PostalCode.length() > lenght)
+            return PostalCode.substring(0,lenght);
+        else
+            return PostalCode;
+    }
+
     public void setPostalCode (String PostalCode)
     {
         this.PostalCode = PostalCode;

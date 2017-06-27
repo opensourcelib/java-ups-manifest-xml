@@ -76,10 +76,13 @@ public class ReferenceNumber
     public String getPO(String prefix,Integer poLenght){
         String po=null;
         if(poLenght !=null && prefix !=null){
-            String regex="^"+prefix+"\\d{"+(poLenght-prefix.length())+"}$";
-            po=getValue().replaceAll("\\D+","");
-            if(po.matches(regex)){
-                return po;
+            String regex=prefix+"\\d{"+(poLenght-prefix.length())+"}";
+            po=getValue();
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(po);
+            if (matcher.find())
+            {
+                return matcher.group(0);
             }
             else {
                 return null;
