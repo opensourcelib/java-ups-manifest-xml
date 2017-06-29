@@ -132,6 +132,7 @@ public class WebQuantumView {
             else{
                 String csvResult=webClient.getPage(webRequest).getWebResponse().getContentAsString();
                 setCsvContent(csvResult);
+                parseCSVToManifest(getCsvContent());
                 return  csvResult;
             }
         } catch (Exception e) {
@@ -144,11 +145,10 @@ public class WebQuantumView {
     private void parseCSVToManifest(String csv){
         String[] csvByLine=csv.split("\n");
         int csvLenght=csvByLine.length;
-        if(csvLenght >14){
             for (int i=0;i<csvLenght;i++){
                 if(!csvByLine[i].toLowerCase().contains(getIgnoreIfContain().toLowerCase()) && csvByLine[i].contains("Manifest")){
                     String[] line=csvByLine[i].split(",");
-                    if(line.length >0){
+                    if(line.length >13){
                         Manifest manifest = new Manifest();
                         Package upsPackage=new Package();
 
@@ -158,13 +158,13 @@ public class WebQuantumView {
                         for (int j=0;j<refNumbers.length;j++){
                             ReferenceNumber referenceNumber = new ReferenceNumber();
                             referenceNumber.setNumber(String.valueOf(j+1));
-                            referenceNumber.setValue(refNumbers[j]);
+                            referenceNumber.setValue(refNumbers[j].replace("\"",""));
                             referenceNumbers[j]=referenceNumber;
                         }
                         manifest.setReferenceNumber(referenceNumbers);
 
                         upsPackage.setReferenceNumber(referenceNumbers);
-                        upsPackage.setTrackingNumber(line[0]);
+                        upsPackage.setTrackingNumber(line[0].replace("\"",""));
                         manifest.setPackage(upsPackage);
                         manifest.setPickupDate(line[3]);
                         manifest.setScheduledDeliveryDate(line[14]);
@@ -180,9 +180,9 @@ public class WebQuantumView {
                         shipTo.setAttentionName(line[8]);
                         Address shiptoAddress =new Address();
                         shiptoAddress.setCity(line[9]);
-                        shiptoAddress.setStateProvinceCode(line[10]);
-                        shiptoAddress.setCountryCode(line[11]);
-                        shiptoAddress.setPostalCode(line[12]);
+                        shiptoAddress.setStateProvinceCode(line[10].replace("\"",""));
+                        shiptoAddress.setCountryCode(line[11].replace("\"",""));
+                        shiptoAddress.setPostalCode(line[12].replace("\"",""));
                         shipTo.setAddress(shiptoAddress);
                         manifest.setShipTo(shipTo);
                         setManifestList(manifest);
@@ -190,7 +190,7 @@ public class WebQuantumView {
                 }
 
             }
-        }
+
     }
 
     public void setManifestList(Manifest manifest){
@@ -198,7 +198,6 @@ public class WebQuantumView {
     }
 
     public List<Manifest> getManifest(){
-        parseCSVToManifest(getCsvContent());
         return this.manifestList;
     }
 }
