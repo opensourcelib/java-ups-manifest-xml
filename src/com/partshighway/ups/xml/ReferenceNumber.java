@@ -76,7 +76,7 @@ public class ReferenceNumber
     public String getPO(String prefix,Integer poLenght){
         String po=null;
         if(poLenght !=null && prefix !=null){
-            String regex=prefix+"\\d{"+(poLenght-prefix.length())+"}";
+            String regex="(?<!\\d)"+prefix+"(\\d{"+(poLenght-prefix.length())+"})";
             po=getValue();
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(po);

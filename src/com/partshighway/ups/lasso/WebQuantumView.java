@@ -166,7 +166,7 @@ public class WebQuantumView {
                         upsPackage.setReferenceNumber(referenceNumbers);
                         upsPackage.setTrackingNumber(line[0].replace("\"",""));
                         manifest.setPackage(upsPackage);
-                        manifest.setPickupDate(line[3]);
+                        manifest.setPickupDate(line[3].replace("\"",""));
                         manifest.setScheduledDeliveryDate(line[14]);
                         Shipper shipper=new Shipper();
                         shipper.setName(line[4]);
